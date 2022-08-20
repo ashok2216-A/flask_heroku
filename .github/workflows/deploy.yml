@@ -1,24 +1,9 @@
 name: deploy
 on: push
 
-
+# .github/workflows/custom-deploy.yml
 jobs:
-  heroku-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v2
-      - name: Deploy to Heroku
-        uses: ashok2216-A/flask_heroku@main
-        with:
-          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
-          heroku_email: ${{ secrets.HEROKU_EMAIL }}
-
   custom-deploy:
-    # The `needs` is added to bypass:
-    # "Your account has reached its concurrent builds limit"
-    needs: heroku-deploy
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -43,4 +28,4 @@ jobs:
         env:
           HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
       - name: Push to Heroku
-        run: git push heroku main
+        run: git push heroku master
