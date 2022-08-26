@@ -3,8 +3,8 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-     # return "Hello World! My name is ashok"
-     render_template('template\index.html')
+     return "Hello World! My name is ashok"
+     
 
 if __name__ == "__main__":
     app.run()
