@@ -1,8 +1,8 @@
 from flask import Flask, render_template
 app = Flask(__name__)
 
-@app.route("/<name>")
-def home(name):
+@app.route("/")
+def home():
      # return "Hello World! My name is ashok"
      return render_template('index.html')
 
